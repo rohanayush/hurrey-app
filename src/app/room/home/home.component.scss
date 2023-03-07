@@ -35,3 +35,13 @@
     width: 312px;
 }
 
+* {
+    border: 1px solid salmon;
+}
+
+.prev {
+    position: fixed;
+    left: 3%;
+    top: 3%;
+    z-index: 101;
+}

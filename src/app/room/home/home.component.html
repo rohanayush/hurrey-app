@@ -1,19 +1,22 @@
+<!-- When loader is there -->
 <ng-container *ngIf="loading">
   <app-loading></app-loading>
 </ng-container>
+
+<!-- After loading is done -->
 <ng-container *ngIf="!loading">
   <!--content -->
-  <div class="flex">
-    <app-name-form *ngIf="state == 1" [form]="nameForm" (next)="next()">
-    </app-name-form>
+  <div *ngIf="state == 1" class="flex-container">
+    <app-name-form [form]="nameForm" (next)="next()"> </app-name-form>
   </div>
-  <div class="flex">
+
+  <div *ngIf="state == 2" class="flex">
     <div class="flex-container">
       <div class="second-screen">
-        <div *ngIf="state == 2">
+        <div>
           <div *ngIf="usrName" class="flex-column">
-            <h2>Hello! {{ usrName }}</h2>
-            <h3>Choose your avatar</h3>
+            <p class="head">Hello! {{ usrName }}</p>
+            <h2>Choose your avatar</h2>
           </div>
           <app-avatar-form [form]="avatarForm" (next)="next()">
           </app-avatar-form>
@@ -22,32 +25,38 @@
     </div>
   </div>
 
-  <div class="block" *ngIf="state == 3">
-    <div class="flex">
-      <div class="img">
-        <img src="{{ avatarImg }}" alt="" />
-      </div>
-      <div class="name">
-        <h2>{{ usrName }}</h2>
-      </div>
-    </div>
-    <div class="flex">
-      <div class="block">
-        <div class="options">
-          <button class="long-button" (click)="joinRoom()">Join a Room</button>
+  <div class="flex-container" *ngIf="state == 3">
+    <div class="block">
+      <div class="flex">
+        <div>
+          <img class="avatar" src="{{ avatarImg }}" alt="" />
         </div>
-        <div class="options">
-          <button class="long-button" (click)="createRoom()">Create a Room</button>
+        <div class="name">
+          <h2>{{ usrName }}</h2>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="block">
+          <div class="options">
+            <button class="long-button" (click)="joinRoom()">
+              Join a Room
+            </button>
+          </div>
+          <div class="options">
+            <button class="long-button" (click)="createRoom()">
+              Create a Room
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="fourth">
-    <div class="block" *ngIf="create">
+  <div *ngIf="create"  class="fourth flex-container">
+    <div class="block">
       <div class="flex">
-        <div class="img">
-          <img src="{{ avatarImg }}" alt="" />
+        <div>
+          <img class="avatar" src="{{ avatarImg }}" alt="" />
         </div>
         <div class="name">
           <h2>{{ usrName }}</h2>
@@ -58,25 +67,25 @@
     </div>
   </div>
 
-  <div class="fifth" *ngIf="join">
+  <div class="fifth" class="flex-container" *ngIf="join">
     <div class="block">
       <div class="flex">
-        <div class="img">
-          <img src="{{ avatarImg }}" alt="" />
+        <div>
+          <img class="avatar" src="{{ avatarImg }}" alt="" />
         </div>
         <div class="name">
-          <h2>{{ usrName }}</h2>
+          <h2 style="font-size: 24px">{{ usrName }}</h2>
         </div>
       </div>
       <app-join-room-form [form]="joinRoomForm" (next)="next()">
       </app-join-room-form>
     </div>
   </div>
-</ng-container>
 
-<div class="prev" *ngIf="state >= 2">
-  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
-      </svg> -->
-  <button class="usual-buttons"(click)="previous()">Previous</button>
-</div>
+  <div class="prev" *ngIf="state >= 2">
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+        </svg> -->
+    <button class="usual-buttons" (click)="previous()">Previous</button>
+  </div>
+</ng-container>

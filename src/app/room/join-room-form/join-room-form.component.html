@@ -1,13 +1,13 @@
-<form *ngIf="form" [formGroup]="form">
-  <div>
-    <label for=""
-      >Type room code below<input
-        type="text"
-        maxlength="6"
-        numbersOnly
-        formControlName="roomCode"
-    /></label>
+<form class="flex" *ngIf="form" [formGroup]="form">
+  <div class="block">
+    <div style="display: flex; justify-content: center">
+      <label for=""><h1>Type room code below</h1></label>
+    </div>
+    <div>
+      <input type="text" maxlength="6" numbersOnly formControlName="roomCode" />
+    </div>
   </div>
+
   <div>
     <button
       class="usual-buttons"
