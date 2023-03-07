@@ -1,0 +1,21 @@
+<form *ngIf="form" [formGroup]="form">
+  <div>
+    <label for=""
+      >Room Name<input type="text" formControlName="roomName"
+    /></label>
+  </div>
+  <div>
+    <label for=""
+      >Players<input type="number" max="6" min="1" formControlName="playersNum"
+    /></label>
+  </div>
+  <div>
+    <button
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+      (click)="nextStep()"
+    >
+      Next
+    </button>
+  </div>
+</form>

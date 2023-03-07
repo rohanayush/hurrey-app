@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap";
+body {
+    background-image: url('https://hurrey-descriptive-ai-demo.web.app/background.12a59d8f01347080.svg');
+    background-color: #141923;
+  background-repeat: no-repeat;
+  background-position:top center;
+  background-size: cover;
+  }
+
+  *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+  }

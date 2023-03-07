@@ -1,0 +1,23 @@
+input[type="radio"] {
+    display: none;
+  }
+  
+  label img {
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  
+  input[type="radio"]:checked + label img {
+    border-color: black;
+  }
+
+  .img{
+    background:linear-gradient(#141923,#141923) padding-box,linear-gradient(to right,#7b72cc,#dc0078,#3871d6) border-box;
+    border: 10px solid transparent;
+    border-radius: 50%;
+    background-color: #7B72CC;
+  }
+  .flex{
+    display: flex;
+
+  }

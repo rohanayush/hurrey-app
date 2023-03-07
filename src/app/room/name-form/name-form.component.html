@@ -1,0 +1,10 @@
+<form *ngIf ="form" [formGroup]="form">
+  <div>
+    <label for="">Name<input type="text"  formControlName="name"></label>
+  </div>
+  <div>
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="nextStep()">
+        Next
+    </button>
+  </div>
+</form>

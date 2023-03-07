@@ -1,0 +1,32 @@
+<form *ngIf="form" [formGroup]="form">
+  <div class="row">
+    <div class="col-md-2" *ngFor="let avatar of avatars; let i = index">
+      <div class="">
+        <label>
+          <input
+            id="avatar.name"
+            type="radio"
+            value="{{ avatar.picture }}"
+            name="avatar"
+            formControlName="avatar"
+            (change)="trackChange($event, i)" />
+          <img
+            src="{{ avatar.picture }}"
+            width="150"
+            height="150"
+            alt=""
+            style="
+              border-radius: 50%;
+              background: #3a3a3a padding-box, #b0b0b0 border-box;
+              border:3px solid transparent;
+            "
+            [class.img]="id == i"
+        /></label>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" (click)="nextStep()" [disabled]="proceed">
+    Next
+  </button>
+</form>
