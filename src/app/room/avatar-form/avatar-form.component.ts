@@ -23,6 +23,7 @@ export class AvatarFormComponent {
   }
 
   ngOnInit(){
+    // this.form?.controls['avatar']
     this.form?.valueChanges.subscribe(
       (a)=> console.log("value of avatar",a.avatar)
     )
@@ -43,6 +44,6 @@ export class AvatarFormComponent {
     console.log(ev)
      this.id=i;
      this.proceed=false;
-
+     sessionStorage.setItem('id',String(this.id));
   }
 }

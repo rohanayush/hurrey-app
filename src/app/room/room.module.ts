@@ -10,6 +10,8 @@ import { CreateRoomFormComponent } from './create-room-form/create-room-form.com
 import { JoinRoomFormComponent } from './join-room-form/join-room-form.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PlayersNumberOnlyDirective } from './directive/PlayerNumbersOnly.directive';
+import { NumbersOnlyDirective } from './directive/NumbersOnly.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NameFormComponent,
     AvatarFormComponent,
     CreateRoomFormComponent,
-    JoinRoomFormComponent
+    JoinRoomFormComponent,
+    PlayersNumberOnlyDirective,
+    NumbersOnlyDirective
   ],
   imports: [
     CommonModule,

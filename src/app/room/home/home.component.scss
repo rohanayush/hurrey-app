@@ -1,12 +1,37 @@
-.block{
+.block {
     display: block;
 }
-.flex{
+
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 }
-.glyphycon{
-    color:white;
+
+.glyphycon {
+    color: white;
 }
+
+.second-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.long-button {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+    width: 312px;
+}
+

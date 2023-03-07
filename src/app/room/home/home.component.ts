@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { numberValidator } from './../validators/numberValidator';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -35,10 +35,11 @@ export class HomeComponent {
     });
     this.createRoomForm = this.formBuilder.group({
       roomName: ['', Validators.required],
-      playersNum: ['', Validators.required],
+      playersNum: ['', [numberValidator(),Validators.required, Validators.min(1), Validators.max(6),Validators.maxLength(1)]],
     });
     this.joinRoomForm = this.formBuilder.group({
-      roomCode: ['', Validators.required]
+      roomCode: ['', [numberValidator(),Validators.required,Validators.pattern("^[0-9]*$"),
+      Validators.minLength(6)]]
     });
 
     this.nameForm.valueChanges.subscribe((change: any) => {
@@ -64,18 +65,43 @@ export class HomeComponent {
   }
 
   previous() {
-    this.state--;
+    
+    if(this.join){
+      this.join=false;
+      this.create=false;
+      this.state=3;
+      console.log("inside join",this.state);
+      // this.avatarForm?.reset();
+    }
+
+    else if(this.create){
+      this.create=false;
+      this.join=false;
+      this.state=3;
+      console.log("inside create",this.state);
+
+      // this.avatarForm?.reset();
+
+    }
+    else if(this.state>1){
+      this.state--;
+      console.log("inside normal",this.state);
+
+      // this.avatarForm?.reset();
+    }
   }
 
   createRoom() {
     this.create=true;
     this.join=false;
+    this.state++;
 
   }
 
   joinRoom(){
     this.join=true;
     this.create=false;
+    this.state++;
   }
 
   submit(ev: any) {

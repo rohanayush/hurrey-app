@@ -1,11 +1,20 @@
-<form *ngIf ="form" [formGroup]="form">
-    <div>
-      <label for="">Type room code below<input type="text"  formControlName="codeRoom"></label>
-    </div>
-    <div>
-      <button class="" [disabled]="form.invalid" (click)="nextStep()">
-          Next
-      </button>
-    </div>
-  </form>
-  
+<form *ngIf="form" [formGroup]="form">
+  <div>
+    <label for=""
+      >Type room code below<input
+        type="text"
+        maxlength="6"
+        numbersOnly
+        formControlName="roomCode"
+    /></label>
+  </div>
+  <div>
+    <button
+      class="usual-buttons"
+      [disabled]="form.invalid"
+      (click)="nextStep()"
+    >
+      Next
+    </button>
+  </div>
+</form>

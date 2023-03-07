@@ -6,12 +6,12 @@
   </div>
   <div>
     <label for=""
-      >Players<input type="text"  formControlName="playersNum"
+      >Players<input type="text" maxlength="1" playerNumbersOnly formControlName="playersNum"
     /></label>
   </div>
   <div>
     <button
-      class=""
+      class="usual-buttons"
       [disabled]="form.invalid"
       (click)="nextStep()"
     >

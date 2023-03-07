@@ -1,10 +1,14 @@
+<div class="flex-container">
+    <div class="inner-flex">
 <form *ngIf ="form" [formGroup]="form">
   <div>
     <label for=""><h1>What is your name?</h1><input type="text"  formControlName="name"></label>
   </div>
   <div>
-    <button class="" [disabled]="form.invalid" (click)="nextStep()">
+    <button class="usual-buttons" [disabled]="form.invalid" (click)="nextStep()">
         Next
     </button>
   </div>
 </form>
+</div>
+</div>
