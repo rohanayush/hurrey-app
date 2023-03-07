@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 body {
     background-image: url('https://hurrey-descriptive-ai-demo.web.app/background.12a59d8f01347080.svg');
     background-color: #141923;
@@ -14,3 +15,26 @@ body {
     box-sizing: border-box;
     color: white;
   }
+  input[type="text"] {
+    height: 45px;
+    width: 300px;
+    padding-left: 10px;
+    border-radius: 10px;
+    background: linear-gradient(#141923,#141923) padding-box,linear-gradient(to right,#7b72cc,#dc0078,#3871d6) border-box;
+    border: 2px solid transparent;
+  }
+  h1{
+    font-size: 36px;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+  button{
+    background: linear-gradient(#141923,#141923) padding-box,linear-gradient(to right,#7b72cc,#dc0078,#3871d6) border-box;
+    border-radius: 50em;
+    border: 2px solid transparent;
+    color: #fff;
+    min-width: 100px;
+    margin-top:1rem;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

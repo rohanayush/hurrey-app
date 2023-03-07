@@ -1,9 +1,9 @@
 <form *ngIf ="form" [formGroup]="form">
   <div>
-    <label for="">Name<input type="text"  formControlName="name"></label>
+    <label for=""><h1>What is your name?</h1><input type="text"  formControlName="name"></label>
   </div>
   <div>
-    <button class="btn btn-primary" [disabled]="form.invalid" (click)="nextStep()">
+    <button class="" [disabled]="form.invalid" (click)="nextStep()">
         Next
     </button>
   </div>

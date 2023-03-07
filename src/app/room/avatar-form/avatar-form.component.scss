@@ -15,9 +15,24 @@ input[type="radio"] {
     background:linear-gradient(#141923,#141923) padding-box,linear-gradient(to right,#7b72cc,#dc0078,#3871d6) border-box;
     border: 10px solid transparent;
     border-radius: 50%;
-    background-color: #7B72CC;
+    transition: all 1s;
+    // background-color: #7B72CC;
+  }
+
+
+  input[type="radio"]:checked + .selected-image {
+    transform: scale(1.1);
   }
   .flex{
     display: flex;
 
+  }
+  @keyframes zoom {
+    0%{
+        
+    }
+    100%{
+        width:180px ;
+        height: 180px;
+    }
   }

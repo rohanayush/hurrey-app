@@ -20,13 +20,14 @@
               background: #3a3a3a padding-box, #b0b0b0 border-box;
               border:3px solid transparent;
             "
+            class="selected-image"
             [class.img]="id == i"
         /></label>
       </div>
     </div>
   </div>
 
-  <button class="btn btn-primary" (click)="nextStep()" [disabled]="proceed">
+  <button class="" (click)="nextStep()" [disabled]="proceed">
     Next
   </button>
 </form>

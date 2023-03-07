@@ -6,12 +6,12 @@
   </div>
   <div>
     <label for=""
-      >Players<input type="number" max="6" min="1" formControlName="playersNum"
+      >Players<input type="text"  formControlName="playersNum"
     /></label>
   </div>
   <div>
     <button
-      class="btn btn-primary"
+      class=""
       [disabled]="form.invalid"
       (click)="nextStep()"
     >

@@ -7,8 +7,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NameFormComponent } from './name-form/name-form.component';
 import { AvatarFormComponent } from './avatar-form/avatar-form.component';
 import { CreateRoomFormComponent } from './create-room-form/create-room-form.component';
+import { JoinRoomFormComponent } from './join-room-form/join-room-form.component';
 
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,14 @@ import { CreateRoomFormComponent } from './create-room-form/create-room-form.com
     LoadingComponent,
     NameFormComponent,
     AvatarFormComponent,
-    CreateRoomFormComponent
+    CreateRoomFormComponent,
+    JoinRoomFormComponent
   ],
   imports: [
     CommonModule,
     RoomRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   exports:[
     HomeComponent
