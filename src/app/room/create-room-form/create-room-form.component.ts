@@ -13,6 +13,6 @@ export class CreateRoomFormComponent {
 
 
   nextStep(){
-    
+    this.next.emit();
   }
 }

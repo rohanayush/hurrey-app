@@ -1,6 +1,6 @@
 <form *ngIf="form" [formGroup]="form">
-  <div class="row">
-    <div class="col-md-2 col-lg-1 col-sm-5 col-xs-5" *ngFor="let avatar of avatars; let i = index">
+  <div class="flex-box">
+    <div class="flex-item" *ngFor="let avatar of avatars; let i = index">
       <div class="">
         <label>
           <input
@@ -12,8 +12,8 @@
             (change)="trackChange($event, i)" />
           <img
             src="{{ avatar.picture }}"
-            width="150"
-            height="150"
+            width="120"
+            height="120"
             alt=""
             style="
               border-radius: 50%;
@@ -22,12 +22,14 @@
             "
             class="selected-image"
             [class.avatar]="id == i"
+            [ngStyle]="{'opacity': id!=i ?'0.5':'1'}"
         /></label>
       </div>
     </div>
   </div>
-
+<div class="flex">
   <button class="usual-buttons" (click)="nextStep()" [disabled]="proceed">
     Next
   </button>
+</div>
 </form>

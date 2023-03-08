@@ -10,13 +10,18 @@
     <app-name-form [form]="nameForm" (next)="next()"> </app-name-form>
   </div>
 
-  <div *ngIf="state == 2" class="flex">
+  <div
+    *ngIf="state == 2"
+    class="flex second-screen animate__animated animate__fadeInUp"
+  >
     <div class="flex-container">
-      <div class="second-screen">
+      <div class="">
         <div>
-          <div *ngIf="usrName" class="flex-column">
+          <div *ngIf="usrName" class="flex-column space">
             <p class="head">Hello! {{ usrName }}</p>
-            <h2>Choose your avatar</h2>
+            <h2 style="margin-top: 10px; margin-bottom: 10px">
+              Choose your avatar
+            </h2>
           </div>
           <app-avatar-form [form]="avatarForm" (next)="next()">
           </app-avatar-form>
@@ -25,11 +30,19 @@
     </div>
   </div>
 
-  <div class="flex-container" *ngIf="state == 3">
+  <div
+    class="flex-container avatar-form animate__animated animate__fadeInLeft"
+    *ngIf="state == 3"
+  >
     <div class="block">
-      <div class="flex">
+      <div class="flex space">
         <div>
-          <img class="avatar" src="{{ avatarImg }}" alt="" />
+          <img
+            class="avatar"
+            style="flex: 1 1 20%"
+            src="{{ avatarImg }}"
+            alt=""
+          />
         </div>
         <div class="name">
           <h2>{{ usrName }}</h2>
@@ -52,9 +65,12 @@
     </div>
   </div>
 
-  <div *ngIf="create"  class="fourth flex-container">
+  <div
+    *ngIf="create"
+    class="flex-container animate__animated animate__fadeInRight"
+  >
     <div class="block">
-      <div class="flex">
+      <div class="flex space">
         <div>
           <img class="avatar" src="{{ avatarImg }}" alt="" />
         </div>
@@ -62,14 +78,18 @@
           <h2>{{ usrName }}</h2>
         </div>
       </div>
-      <app-create-room-form [form]="createRoomForm" (next)="next()">
+      <app-create-room-form [form]="createRoomForm" (next)="createPage()">
       </app-create-room-form>
     </div>
   </div>
 
-  <div class="fifth" class="flex-container" *ngIf="join">
+  <div
+    class="fifth"
+    class="flex-container animate__animated animate__fadeInRight"
+    *ngIf="join"
+  >
     <div class="block">
-      <div class="flex">
+      <div class="flex space">
         <div>
           <img class="avatar" src="{{ avatarImg }}" alt="" />
         </div>
@@ -82,10 +102,30 @@
     </div>
   </div>
 
-  <div class="prev" *ngIf="state >= 2">
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
-        </svg> -->
-    <button class="usual-buttons" (click)="previous()">Previous</button>
+  <div class="created flex-container" *ngIf="page">
+    <div class="block">
+      <div class="space" style="position: relative;">
+        <input  type="text" [disabled]="true" placeholder="{{ roomCode }}" />
+          <svg class="share" width="30" height="30">
+            <image xlink:href="assets/Share.svg" width="30" height="30" />
+          </svg>
+      </div>
+      <div class="black flex">
+        <img
+          class="avatar rolling-avatar animate__animated animate__fadeInRight"
+          src="{{ avatarImg }}"
+          alt=""
+        />
+      </div>
+      <div class="flex">
+        <button class="usual-buttons" [disabled]="true">Start</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="prev" *ngIf="state >= 2 && !page">
+    <svg (click)="previous()" width="30" height="30">
+      <image xlink:href="assets/back_arrow.svg" width="30" height="30" />
+    </svg>
   </div>
 </ng-container>

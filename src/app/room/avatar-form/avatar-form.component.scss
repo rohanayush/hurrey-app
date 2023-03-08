@@ -11,13 +11,7 @@ input[type="radio"] {
     border-color: black;
   }
 
-  .avatar{
-    background:linear-gradient(#141923,#141923) padding-box,linear-gradient(to right,#7b72cc,#dc0078,#3871d6) border-box;
-    border: 10px solid transparent;
-    border-radius: 50%;
-    transition: all 1s;
-    // background-color: #7B72CC;
-  }
+ 
 
 
   input[type="radio"]:checked + .selected-image {
@@ -33,3 +27,19 @@ input[type="radio"] {
         height: 180px;
     }
   }
+
+  // Trying flex on for loop
+  .flex-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap:0.5rem;
+  }
+  
+  .flex-item {
+    flex: 1 1 20%;
+  }
+  
+  .show-item {
+    display: block;
+  }
+  

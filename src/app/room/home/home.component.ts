@@ -13,12 +13,13 @@ export class HomeComponent {
   avatarForm: FormGroup | undefined;
   createRoomForm: FormGroup | undefined;
   joinRoomForm:FormGroup | undefined;
-
+  roomCode:number | undefined;
   state: number = 1;
   usrName: string = '';
   avatarImg: string = '';
   create:boolean=false;
   join:boolean=false;
+  page:boolean=false;
 
   constructor(private formBuilder: FormBuilder) {
     setTimeout(() => {
@@ -43,25 +44,17 @@ export class HomeComponent {
     });
 
     this.nameForm.valueChanges.subscribe((change: any) => {
-      console.log('changed name to : ' + change.name);
+      // console.log('changed name to : ' + change.name);
       this.usrName = change.name;
     });
     this.avatarForm.valueChanges.subscribe((change: any) => {
-      console.log('changed avatar : ' + change.avatar);
+      // console.log('changed avatar : ' + change.avatar);
       this.avatarImg = change.avatar;
-    });
-    this.createRoomForm.valueChanges.subscribe((change: any) => {
-      console.log('changed roo name : ' + change.roomName);
-      console.log('changed players : ' + change.playersNum);
-    });
-    this.joinRoomForm.valueChanges.subscribe((change: any) => {
-      console.log('changed code : ' + change.roomCode);
     });
   }
 
   next() {
     this.state++;
-    console.log(this.state);
   }
 
   previous() {
@@ -70,22 +63,21 @@ export class HomeComponent {
       this.join=false;
       this.create=false;
       this.state=3;
-      console.log("inside join",this.state);
-      // this.avatarForm?.reset();
     }
 
     else if(this.create){
       this.create=false;
       this.join=false;
       this.state=3;
-      console.log("inside create",this.state);
 
       // this.avatarForm?.reset();
 
     }
     else if(this.state>1){
+      if(this.state<=3 ){
+            this.avatarForm?.reset();
+      }
       this.state--;
-      console.log("inside normal",this.state);
 
       // this.avatarForm?.reset();
     }
@@ -104,8 +96,9 @@ export class HomeComponent {
     this.state++;
   }
 
-  submit(ev: any) {
-    console.log('from home: ', ev);
+  createPage(){
+      this.create=false;
+      this.page=true;
+      this.roomCode =  Math.floor(Math.random() * 900000) + 100000 ;
   }
-
 }

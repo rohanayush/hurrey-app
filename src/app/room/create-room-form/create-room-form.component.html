@@ -1,4 +1,4 @@
-<form class="flex-column" *ngIf="form" [formGroup]="form">
+<form class="flex-column" style="margin-top:10px" *ngIf="form" [formGroup]="form">
 
   <div>
     <input type="text" formControlName="roomName" placeholder="-Room name-" />
@@ -20,7 +20,7 @@
       [disabled]="form.invalid"
       (click)="nextStep()"
     >
-      Next
+      Create
     </button>
   </div>
 </form>

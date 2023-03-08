@@ -16,17 +16,13 @@ export class AvatarFormComponent {
   isChecked:Boolean=false;
   id:number=-1;
   proceed:boolean=true;
+  
 
   constructor(){
     this.avatars = Utils.getAvatarDetails() as any;
-    console.log(this.avatars)
   }
 
   ngOnInit(){
-    // this.form?.controls['avatar']
-    this.form?.valueChanges.subscribe(
-      (a)=> console.log("value of avatar",a.avatar)
-    )
   }
   nextStep(){
     this.next.emit();
@@ -36,12 +32,10 @@ export class AvatarFormComponent {
     this.previous.emit();
   }
   submitForm(){
-    console.log("On submit",this.form?.value)
     this.submit.emit(this.form?.value);
   }
 
   trackChange(ev:any,i:number){
-    console.log(ev)
      this.id=i;
      this.proceed=false;
      sessionStorage.setItem('id',String(this.id));
