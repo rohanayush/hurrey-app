@@ -7,7 +7,9 @@ const routes: Routes = [
   {
     path:'room',
     loadChildren: ()=> import('./../app/room/room.module').then( m => m.RoomModule)
-  }
+  },
+  { path: '',   redirectTo: '/room', pathMatch: 'full' },
+  { path: '**', redirectTo:'/room' },
 ];
 
 @NgModule({
